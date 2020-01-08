@@ -3,6 +3,7 @@
 
 ## run
 ```
+export ES_URL=http://10.x.x.x:9200
 pip install -r requirements.txt
 python index.py
 ```
