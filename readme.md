@@ -1,7 +1,7 @@
 # Monitor from es
 `Elastic stack` 中的 `Metricbeat` 会将系统数据放到 ES 中,但是 `Kibana`不能设置密码,而且无法实现报警功能.这个项目就是通过`python`的`requests`从`ES`中将需要的数据读出来,通过接口返回.
 
-<img src="readme.assets/image-20200109100520853.png" alt="image-20200109100520853" style="zoom:50%;" />
+<img src="readme.assets/image-20200109100520853.png" alt="image-20200109100520853" style="zoom:30%;" />
 
 ## run
 ```
