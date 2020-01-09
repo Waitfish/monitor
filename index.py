@@ -128,6 +128,7 @@ def query_from_es(url, query):
         res = requests.post(url, headers=headers, data=json.dumps(query))
         return res.json()['aggregations']['hostname']['buckets']
     except Exception as error:
+        print(error)
         return False
 
 
@@ -145,7 +146,7 @@ def hdbypct():
     query_by_pct['query']['bool']['must']['range']['system.filesystem.used.pct']['gt'] = warn
     data = query_from_es(URL, query_by_pct)
 
-    if data:
+    if data != False:
         return jsonify({
             'status_code': 200,
             'data': data
@@ -165,7 +166,7 @@ def hdbybyte():
     query_by_byte['query']['bool']['must']['range']['system.filesystem.free']['lt'] = byte
     data = query_from_es(URL, query_by_byte)
 
-    if data:
+    if data != False:
         return jsonify({
             'status_code': 200,
             'data': data
